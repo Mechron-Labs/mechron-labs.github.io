@@ -14,9 +14,13 @@
   "hero.media": "// early demonstration",
 
   "problem.eyebrow": "The problem",
-  "problem.title": "Physical work is still done by hand.",
-  "problem.body1": "Not for lack of technology. Traditional robotics demands heavy upfront capital, long projects and complex integration — so physical automation stays out of reach for most operations, which have neither the capital nor the team to run a robotics project from scratch.",
+  "problem.title": "The work nobody wants to keep doing.",
+  "problem.body1": "Warehouse and operations work is repetitive and physically draining — nobody wants to do it, and nobody wants to keep doing it. In Brazil, annual turnover runs past 30%, and payroll charges push the real cost to nearly double the gross wage. Operational labor is hard to hire and harder to scale — and traditional robotics, with its heavy upfront cost and long projects, was never an option for most operations.",
   "problem.body2": "Compute became the cloud. Infrastructure became a service. Robotics is next — and that's where Mechron stands.",
+  "problem.stat1num": "30%+",
+  "problem.stat1label": "annual workforce turnover",
+  "problem.stat2num": "~2×",
+  "problem.stat2label": "real labor cost, once charges are loaded in",
 
   "model.eyebrow": "Robotics as a service",
   "model.title": "A fleet you subscribe to, not a project you run.",
@@ -50,7 +54,7 @@
 
   "apps.eyebrow": "Where we operate",
   "apps.title": "Predictable indoor environments.",
-  "apps.intro": "Controlled spaces where the task repeats and 24/7 operational capacity pays off directly.",
+  "apps.intro": "Starting with distribution centers and light industry in Brazil — controlled spaces where the task repeats and 24/7 capacity pays off directly.",
   "apps.item1": "Logistics &amp; warehouses",
   "apps.item2": "Internal material movement",
   "apps.item3": "Repetitive manipulation",
