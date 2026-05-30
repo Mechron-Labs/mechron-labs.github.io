@@ -4,15 +4,245 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="icon.png">
-    <title>Mechron</title>
+    <title>Mechron — Physical AI, delivered as a service</title>
+    <meta name="description" content="Mechron is a Physical AI company. We install, operate and maintain a fleet of robots that does the physical work — billed as continuous operational capacity. Robotics as a service.">
+    <meta name="keywords" content="Mechron, Physical AI, robotics as a service, RaaS, robot labor, robotics, fleet, automation">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Mechron — Physical AI, delivered as a service">
+    <meta property="og:description" content="We don't sell robots. We install, operate and maintain a fleet that does the physical work — a fleet that gets smarter with every install.">
+    <meta property="og:url" content="https://mechron.ai">
+    <meta property="og:image" content="https://mechron.ai/assets/og.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://mechron.ai/assets/og.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Hanken+Grotesk:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="style.css">
-    <meta name="description" content="Mechron - Intelligent Robotics Systems">
-    <meta name="keywords" content="Mechron, AI, artificial intelligence, machine learning, robotics">
 </head>
 <body>
-    <div class="container">
-        <img src="mechron-logo.png" alt="Mechron Logo" class="logo">
-        <p class="message">Looking to invest? Reach out: <a href="mailto:contact@mechron.ai" class="email">contact@mechron.ai</a></p>
-    </div>
+    <!-- decorative background layers (light, blueprint-like) -->
+    <div class="bg-grid" aria-hidden="true"></div>
+    <div class="bg-grain" aria-hidden="true"></div>
+
+    <!-- ===================== NAV ===================== -->
+    <header class="nav" id="nav">
+        <div class="nav__inner">
+            <a href="#top" class="nav__brand" aria-label="Mechron — home">
+                <img src="assets/mechron-logo-ink.png" alt="Mechron" class="nav__logo">
+            </a>
+            <nav class="nav__links" aria-label="Primary">
+                <a href="#problem" data-i18n="nav.problem">The problem</a>
+                <a href="#model" data-i18n="nav.model">Model</a>
+                <a href="#moat" data-i18n="nav.moat">The moat</a>
+                <a href="#technology" data-i18n="nav.technology">How it works</a>
+                <a href="#contact" class="nav__cta" data-i18n="nav.cta">Talk to us</a>
+            </nav>
+            <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+        <nav class="nav__mobile" id="mobileMenu" aria-label="Mobile">
+            <a href="#problem" data-i18n="nav.problem">The problem</a>
+            <a href="#model" data-i18n="nav.model">Model</a>
+            <a href="#moat" data-i18n="nav.moat">The moat</a>
+            <a href="#technology" data-i18n="nav.technology">Technology</a>
+            <a href="#contact" data-i18n="nav.cta">Talk to us</a>
+        </nav>
+    </header>
+
+    <main id="top">
+        <!-- ===================== HERO ===================== -->
+        <section class="hero" id="hero">
+            <div class="container hero__inner">
+                <div class="hero__copy">
+                    <p class="eyebrow"><span class="tick"></span><span data-i18n="hero.eyebrow">Physical AI</span></p>
+                    <h1 class="hero__title" data-i18n="hero.title">Robotics, delivered as a service.</h1>
+                    <p class="hero__subtitle" data-i18n="hero.subtitle">You don't buy a robot or run an automation project — you get the work done. We deploy, operate and maintain the fleet, and you pay one flat monthly fee for the output.</p>
+                    <div class="hero__actions">
+                        <a href="#contact" class="btn btn--primary" data-i18n="hero.ctaPrimary">Talk to us <span aria-hidden="true">→</span></a>
+                        <a href="#model" class="btn btn--ghost" data-i18n="hero.ctaSecondary">How it works</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cinematic video showcase. Drop your own loop at assets/hero.mp4
+                 (+ assets/hero.webm) and it replaces the animated fallback automatically.
+                 Keep it muted, short and seamlessly loopable. -->
+            <div class="container">
+                <figure class="showcase reveal">
+                    <div class="showcase__media">
+                        <video class="showcase__video" id="heroVideo" autoplay muted loop playsinline preload="auto" poster="">
+                            <source src="assets/hero.webm" type="video/webm">
+                            <source src="assets/hero.mp4" type="video/mp4">
+                        </video>
+                        <canvas class="showcase__canvas" id="heroCanvas" aria-hidden="true"></canvas>
+                        <span class="showcase__badge" data-i18n="hero.badge">Demo</span>
+                    </div>
+                    <figcaption class="showcase__caption" data-i18n="hero.media">// early demonstration</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <!-- ===================== PROBLEM ===================== -->
+        <section class="section" id="problem">
+            <div class="container section__split reveal">
+                <div class="section__head">
+                    <p class="eyebrow"><span class="tick"></span><span data-i18n="problem.eyebrow">The problem</span></p>
+                    <h2 class="section__title" data-i18n="problem.title">Physical work is still done by hand.</h2>
+                </div>
+                <div class="section__body">
+                    <p data-i18n="problem.body1">Not for lack of technology. Traditional robotics demands heavy upfront capital, long projects and complex integration — so physical automation stays out of reach for most operations, which have neither the capital nor the team to run a robotics project from scratch.</p>
+                    <p class="lead" data-i18n="problem.body2">Compute became the cloud. Infrastructure became a service. Robotics is next — and that's where Mechron stands.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== MODEL / SOLUTION ===================== -->
+        <section class="section section--alt" id="model">
+            <div class="container">
+                <div class="section__head section__head--center reveal">
+                    <p class="eyebrow"><span class="tick"></span><span data-i18n="model.eyebrow">Robotics as a service</span></p>
+                    <h2 class="section__title" data-i18n="model.title">A fleet you subscribe to, not a project you run.</h2>
+                    <p class="section__intro" data-i18n="model.intro">A mobile robot with two arms that moves, sorts and handles materials inside your building. We deploy it, run it and maintain it — you just see the work get done, for a flat monthly fee.</p>
+                </div>
+                <div class="cards cards--3 reveal">
+                    <article class="card">
+                        <span class="card__index">01</span>
+                        <h3 class="card__title" data-i18n="model.card1.title">No upfront cost</h3>
+                        <p class="card__text" data-i18n="model.card1.text">No machine to buy and no automation project to fund. You pay for output, not equipment.</p>
+                    </article>
+                    <article class="card">
+                        <span class="card__index">02</span>
+                        <h3 class="card__title" data-i18n="model.card2.title">No technical team</h3>
+                        <p class="card__text" data-i18n="model.card2.text">We deploy, operate and maintain the fleet. Your people stay focused on the operation, not on robots.</p>
+                    </article>
+                    <article class="card">
+                        <span class="card__index">03</span>
+                        <h3 class="card__title" data-i18n="model.card3.title">Always on</h3>
+                        <p class="card__text" data-i18n="model.card3.text">Consistent output around the clock — no shifts, no sick days, no staffing swings.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== MOAT / DATA FLYWHEEL ===================== -->
+        <section class="section" id="moat">
+            <div class="container section__split section__split--wide reveal">
+                <div class="section__body">
+                    <p class="eyebrow"><span class="tick"></span><span data-i18n="moat.eyebrow">The moat</span></p>
+                    <h2 class="section__title" data-i18n="moat.title">A fleet that learns.</h2>
+                    <p data-i18n="moat.body1">The hardware is mostly commodity — anyone can buy arms and a mobile base. Our defensible asset is the fleet that gets smarter with every install.</p>
+                    <p data-i18n="moat.body2">Your team demonstrates a task once; the robot watches what to do and learns to repeat it. Every deployed robot adds new examples, and that shared experience makes the entire fleet better, faster to teach and cheaper to run — which wins more deployments, which create more experience.</p>
+                    <p class="lead" data-i18n="moat.body3">This is what separates a robot-rental business from a Physical AI platform: software-like defensibility.</p>
+                </div>
+                <div class="flywheel" aria-hidden="true">
+                    <div class="flywheel__ring">
+                        <span class="flywheel__node" style="--i:0" data-i18n="moat.node1">Demonstrate</span>
+                        <span class="flywheel__node" style="--i:1" data-i18n="moat.node2">Data</span>
+                        <span class="flywheel__node" style="--i:2" data-i18n="moat.node3">Better skills</span>
+                        <span class="flywheel__node" style="--i:3" data-i18n="moat.node4">Smarter fleet</span>
+                        <span class="flywheel__node" style="--i:4" data-i18n="moat.node5">More clients</span>
+                        <span class="flywheel__core" data-i18n="moat.core">Data flywheel</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== TECHNOLOGY ===================== -->
+        <section class="section section--alt" id="technology">
+            <div class="container">
+                <div class="section__head section__head--center reveal">
+                    <p class="eyebrow eyebrow--center"><span class="tick"></span><span data-i18n="tech.eyebrow">How it works</span></p>
+                    <h2 class="section__title" data-i18n="tech.title">Deploy once. It only gets better.</h2>
+                    <p class="section__intro" data-i18n="tech.intro">We handle the full rollout, from setup to autonomous operation. Your team teaches a task by simply showing it once — the fleet handles the rest, and keeps improving with every shift.</p>
+                </div>
+                <div class="pipeline reveal" aria-label="How a Mechron deployment works">
+                    <span class="pipeline__step" data-i18n="tech.step1">Install</span>
+                    <span class="pipeline__arrow" aria-hidden="true">→</span>
+                    <span class="pipeline__step" data-i18n="tech.step2">Demonstrate</span>
+                    <span class="pipeline__arrow" aria-hidden="true">→</span>
+                    <span class="pipeline__step" data-i18n="tech.step3">Operate 24/7</span>
+                    <span class="pipeline__arrow" aria-hidden="true">→</span>
+                    <span class="pipeline__step" data-i18n="tech.step4">Improve</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== APPLICATIONS ===================== -->
+        <section class="section" id="applications">
+            <div class="container">
+                <div class="section__head section__head--center reveal">
+                    <p class="eyebrow"><span class="tick"></span><span data-i18n="apps.eyebrow">Where we operate</span></p>
+                    <h2 class="section__title" data-i18n="apps.title">Predictable indoor environments.</h2>
+                    <p class="section__intro" data-i18n="apps.intro">Controlled spaces where the task repeats and 24/7 operational capacity pays off directly.</p>
+                </div>
+                <div class="cards cards--4 reveal">
+                    <article class="card card--app">
+                        <span class="card__index">01</span>
+                        <h3 class="card__title" data-i18n="apps.item1">Logistics &amp; warehouses</h3>
+                    </article>
+                    <article class="card card--app">
+                        <span class="card__index">02</span>
+                        <h3 class="card__title" data-i18n="apps.item2">Internal material movement</h3>
+                    </article>
+                    <article class="card card--app">
+                        <span class="card__index">03</span>
+                        <h3 class="card__title" data-i18n="apps.item3">Repetitive manipulation</h3>
+                    </article>
+                    <article class="card card--app">
+                        <span class="card__index">04</span>
+                        <h3 class="card__title" data-i18n="apps.item4">Technical cleaning &amp; inspection</h3>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== VISION ===================== -->
+        <section class="section section--vision" id="vision">
+            <div class="container section__head section__head--center reveal">
+                <p class="eyebrow eyebrow--center"><span class="tick"></span><span data-i18n="vision.eyebrow">Vision 2030</span></p>
+                <h2 class="section__title section__title--xl" data-i18n="vision.title">Physical work as infrastructure.</h2>
+                <p class="section__intro" data-i18n="vision.intro">Operate hundreds, then thousands of robots at once — selling hours of physical work the way you buy compute and storage today. As the fleet grows, the flywheel compounds and the advantage accrues.</p>
+            </div>
+        </section>
+
+        <!-- ===================== CONTACT ===================== -->
+        <section class="section section--contact" id="contact">
+            <div class="container reveal">
+                <p class="eyebrow eyebrow--center"><span class="tick"></span><span data-i18n="contact.eyebrow">Get in touch</span></p>
+                <h2 class="contact__title" data-i18n="contact.title">Let's put the fleet to work.</h2>
+                <p class="contact__text" data-i18n="contact.text">Tell us about your operation and the tasks you'd hand off. We're onboarding the first deployments and partners now.</p>
+                <a href="mailto:contact@mechron.ai" class="btn btn--primary btn--lg">contact@mechron.ai</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer class="footer">
+        <div class="container footer__inner">
+            <div class="footer__brand">
+                <img src="assets/mechron-logo-ink.png" alt="Mechron" class="footer__logo">
+                <p class="footer__tagline" data-i18n="footer.tagline">Physical AI · Robotics as a service</p>
+            </div>
+            <div class="footer__meta">
+                <a class="footer__social" href="https://www.linkedin.com/company/mechron/" target="_blank" rel="noopener noreferrer" aria-label="Mechron on LinkedIn">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.22.79 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+                </a>
+                <div class="lang" role="group" aria-label="Language">
+                    <button class="lang__btn is-active" data-lang="en" aria-pressed="true">EN</button>
+                    <button class="lang__btn" data-lang="pt" aria-pressed="false" disabled title="Coming soon">PT</button>
+                </div>
+                <p class="footer__copy">© 2026 Mechron</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
 </body>
 </html>
