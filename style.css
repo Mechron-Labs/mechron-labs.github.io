@@ -492,6 +492,25 @@ img { display: block; max-width: 100%; }
         var(--bg);
 }
 .section--vision .section__intro { font-size: clamp(1.1rem, 1.8vw, 1.42rem); }
+.vision__cite {
+    max-width: 60ch;
+    margin: clamp(1.6rem, 3vw, 2.2rem) auto 0;
+    padding-top: clamp(1.3rem, 2.5vw, 1.8rem);
+    border-top: 1px solid var(--line);
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    line-height: 1.65;
+    letter-spacing: 0.01em;
+    color: var(--ink-faint);
+}
+.vision__cite a {
+    color: var(--ink-soft);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-color: var(--accent);
+    transition: color 0.2s ease;
+}
+.vision__cite a:hover { color: var(--accent); }
 
 .section--contact { text-align: center; }
 .section--contact .container { display: flex; flex-direction: column; align-items: center; }

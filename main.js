@@ -193,8 +193,33 @@
     },
   };
 
-  // keep EN in sync with the json source of truth when served over http(s)
-  if (location.protocol.startsWith('http')) I18N.load('en');
+  const STORE_KEY = 'mechron_lang';
+  const setActiveLangButton = (lang) => {
+    document.querySelectorAll('.lang__btn').forEach((b) => {
+      const active = b.getAttribute('data-lang') === lang;
+      b.classList.toggle('is-active', active);
+      b.setAttribute('aria-pressed', String(active));
+    });
+  };
+
+  // Initial language: saved choice > pt-* browser > English (default).
+  const detectLang = () => {
+    try {
+      const saved = localStorage.getItem(STORE_KEY);
+      if (saved === 'en' || saved === 'pt') return saved;
+    } catch (e) { /* private mode — ignore */ }
+    const langs = navigator.languages || [navigator.language || ''];
+    if (langs.some((l) => String(l).toLowerCase().startsWith('pt'))) return 'pt';
+    return 'en';
+  };
+
+  const initialLang = detectLang();
+  if (initialLang === 'pt') {
+    I18N.load('pt').then((ok) => { if (ok) setActiveLangButton('pt'); });
+  } else if (location.protocol.startsWith('http')) {
+    // keep EN in sync with the json source of truth
+    I18N.load('en');
+  }
 
   document.querySelectorAll('.lang__btn').forEach((btn) => {
     btn.addEventListener('click', async () => {
@@ -203,11 +228,8 @@
       if (lang === I18N.current) return;
       const ok = await I18N.load(lang);
       if (!ok) return;
-      document.querySelectorAll('.lang__btn').forEach((b) => {
-        const active = b === btn;
-        b.classList.toggle('is-active', active);
-        b.setAttribute('aria-pressed', String(active));
-      });
+      setActiveLangButton(lang);
+      try { localStorage.setItem(STORE_KEY, lang); } catch (e) { /* ignore */ }
     });
   });
 })();
