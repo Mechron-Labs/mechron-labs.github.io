@@ -23,7 +23,7 @@
   "problem.stat2label": "real labor cost, once charges are loaded in",
 
   "model.eyebrow": "Robotics as a service",
-  "model.title": "A fleet you subscribe to, not a project you run.",
+  "model.title": "Physical work, on subscription.",
   "model.intro": "A mobile robot with two arms that moves, sorts and handles materials inside your building. We deploy it, run it and maintain it. You just see the work get done, for a flat monthly fee.",
   "model.card1.title": "No upfront cost",
   "model.card1.text": "No machine to buy and no automation project to fund. You pay for output, not equipment.",
@@ -35,7 +35,7 @@
   "moat.eyebrow": "The moat",
   "moat.title": "A fleet that learns.",
   "moat.body1": "The hardware is mostly commodity. Anyone can buy arms and a mobile base. Our defensible asset is the fleet that gets smarter with every install.",
-  "moat.body2": "Your team demonstrates a task once; the robot watches what to do and learns to repeat it. Every deployed robot adds new examples, and that shared experience makes the entire fleet better, faster to teach and cheaper to run, which wins more deployments, which create more experience.",
+  "moat.body2": "Your team demonstrates a task a few times; the robot watches what to do and learns to repeat it. Every deployed robot adds new examples, and that shared experience makes the entire fleet better, faster to teach and cheaper to run, which wins more deployments, which create more experience.",
   "moat.body3": "This is what separates a robot-rental business from a Physical AI platform: software-like defensibility.",
   "moat.node1": "Demonstrate",
   "moat.node2": "Data",
@@ -45,8 +45,8 @@
   "moat.core": "Data flywheel",
 
   "tech.eyebrow": "How it works",
-  "tech.title": "Deploy once. It only gets better.",
-  "tech.intro": "We handle the full rollout, from setup to autonomous operation. Your team teaches a task by simply showing it once. The fleet handles the rest and keeps improving with every shift.",
+  "tech.title": "One deployment. Continuous improvement.",
+  "tech.intro": "We handle the full rollout, from setup to autonomous operation. Your team teaches a task with a few demonstrations. The fleet handles the rest and keeps improving with every shift.",
   "tech.step1": "Install",
   "tech.step2": "Demonstrate",
   "tech.step3": "Operate 24/7",
@@ -67,7 +67,7 @@
 
   "contact.eyebrow": "Get in touch",
   "contact.title": "Let's put the fleet to work.",
-  "contact.text": "Tell us about your operation and the tasks you'd hand off. We're onboarding the first deployments and partners now.",
+  "contact.text": "Want to know more? Tell us about your operation and the tasks you'd like to hand off, and we'll get back to you.",
 
   "footer.tagline": "Physical AI · Robotics as a service"
 }
