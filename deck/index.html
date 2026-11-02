@@ -1,0 +1,399 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Mechron · Deck</title>
+<link rel="icon" href="../icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400..700&display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&display=swap">
+<style>
+html,body{margin:0;padding:0;height:100%;background:#0D1014;overflow:hidden;-webkit-text-size-adjust:100%}
+#stage{position:fixed;left:50%;top:50%;width:1920px;height:1080px;transform:translate(-50%,-50%) scale(1);transform-origin:center;overflow:hidden}
+#track{position:absolute;left:0;top:0;height:1080px;display:flex;transition:transform .55s cubic-bezier(.22,.61,.36,1)}
+section{position:relative;flex:0 0 1920px;width:1920px;height:1080px;box-sizing:border-box;overflow:hidden;margin:0}
+section *{box-sizing:border-box;margin:0}
+h1,h2,h3,p{font-weight:inherit}
+img{display:block}
+a{color:inherit}
+table{border-collapse:collapse;width:100%} td,th{vertical-align:top;padding:16px 24px 16px 0;border-bottom:1px solid rgba(128,128,128,.35)}
+#hud{position:fixed;right:16px;bottom:12px;font:14px/1 'IBM Plex Sans',Arial,sans-serif;color:#8A8F96;opacity:.7;user-select:none;pointer-events:none}
+#prev,#next{position:fixed;top:0;bottom:0;width:18%;cursor:pointer;background:transparent;border:0;padding:0}
+#prev{left:0;cursor:w-resize} #next{right:0;cursor:e-resize}
+@media (prefers-reduced-motion:reduce){#track{transition:none}}
+#overview{position:fixed;inset:0;background:#0D1014;overflow:auto;padding:40px;display:none;z-index:10}
+#overview.open{display:block}
+#grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:28px 24px;max-width:1700px;margin:0 auto}
+.thumb{cursor:pointer;outline:0}
+.frame{position:relative;width:100%;aspect-ratio:16/9;overflow:hidden;border-radius:6px;border:2px solid #2A2F36;background:#000}
+.thumb.current .frame,.thumb:focus .frame,.thumb:hover .frame{border-color:#F0662B}
+.scaler{position:absolute;left:0;top:0;width:1920px;height:1080px;transform-origin:0 0;pointer-events:none}
+.scaler section{position:absolute;left:0;top:0}
+.cap{margin-top:10px;font:15px/1.3 'IBM Plex Sans',Arial,sans-serif;color:#AEB4BD;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cap b{color:#F3F1EA;font-weight:600;margin-right:8px}
+#ovhint{max-width:1700px;margin:0 auto 24px;font:14px/1.4 'IBM Plex Sans',Arial,sans-serif;color:#8A8F96}
+</style>
+</head>
+<body>
+<div id="stage"><div id="track">
+<section id="cover" style="background:#0D1014;color:#F3F1EA;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;justify-content:end;gap:40px">
+<img src="img/cover_photo.jpg" alt="Protótipo da Mechron segurando uma garrafa, ao lado de um cesto sobre a mesa" style="position:absolute;left:940px;top:0;width:980px;height:1080px;object-fit:cover">
+<img src="img/logo_white.png" alt="Mechron" style="position:absolute;left:128px;top:96px;width:240px;height:58px;object-fit:contain">
+<h1 style="font-family:'Space Grotesk', Arial, sans-serif;font-size:104px;font-weight:600;line-height:1.02;width:760px;letter-spacing:-3px">Robótica, entregue como serviço.</h1>
+<p style="font-size:30px;color:#AEB4BD;width:720px;line-height:1.4">Robôs que fazem o trabalho físico repetitivo dentro da operação do cliente, pagos por mês.</p>
+<p style="position:absolute;left:128px;bottom:64px;font-size:24px;color:#AEB4BD;width:700px">Pré-seed · Novembro de 2026</p>
+
+</section>
+<section id="problema" style="background:#F3F1EA;color:#0D1014;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;justify-content:space-between;gap:48px">
+<div style="display:flex;flex-direction:column;gap:20px">
+<h2 style="font-family:'Space Grotesk', Arial, sans-serif;font-size:72px;font-weight:600;line-height:1.08;letter-spacing:-1px;width:1500px">Entre a linha de produção e o depósito, tudo ainda passa por mãos.</h2>
+<p style="font-size:32px;line-height:1.4;color:#4A5058;width:1500px">Mover, organizar e manipular material ainda é trabalho manual.</p>
+</div>
+<div style="display:flex;gap:96px;align-items:end">
+<div style="width:560px;display:flex;flex-direction:column;gap:8px">
+<p style="font-family:'Space Grotesk', Arial, sans-serif;font-size:200px;font-weight:600;line-height:0.95;letter-spacing:-6px">1,6x</p>
+<p style="font-size:28px;line-height:1.4;color:#4A5058">o salário bruto é o que cada pessoa custa de verdade, só com os encargos da CLT.</p>
+</div>
+<div style="width:560px;display:flex;flex-direction:column;gap:8px">
+<p style="font-family:'Space Grotesk', Arial, sans-serif;font-size:200px;font-weight:600;line-height:0.95;letter-spacing:-6px;color:#F0662B">30%</p>
+<p style="font-size:28px;line-height:1.4;color:#4A5058">ou mais do time operacional sai todo ano. Repor cada um custa de metade a dois salários anuais.</p>
+</div>
+</div>
+<p style="font-size:32px;line-height:1.45;width:1500px">É o trabalho que ninguém quer continuar fazendo, e a única forma de produzir o dobro é contratar o dobro de gente.</p>
+<p style="position:absolute;left:128px;bottom:64px;font-size:24px;color:#8A8F96;width:1600px">Encargos: <a href="https://investnews.com.br/negocios/escala-6x1-custo-folha-pagamento/" target="_blank" rel="noopener" style="color:#8A8F96;text-decoration:underline">InvestNews</a>. Rotatividade: CAGED / Loris Consultoria, 2024. Custo de reposição: Robert Half / SHRM.</p>
+
+</section>
+<section id="tese" style="background:#0D1014;color:#F3F1EA;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px;display:flex;flex-direction:column;justify-content:space-between;gap:48px">
+<h2 style="font-family:'Space Grotesk', Arial, sans-serif;font-size:72px;font-weight:600;line-height:1.08;letter-spacing:-1px;width:1500px">A robótica vai passar pela mesma mudança que o software e a infraestrutura.</h2>
+<div style="display:flex;flex-direction:column;gap:0">
+<svg aria-label="Linha do tempo com três marcos" style="width:1664px;height:48px" viewBox="0 0 1664 48" width="1664" height="48"><line x1="12" y1="24" x2="1652" y2="24" stroke="#2A2F36" stroke-width="2"/><circle cx="12" cy="24" r="12" fill="#AEB4BD"/><circle cx="566" cy="24" r="12" fill="#AEB4BD"/><circle cx="1120" cy="24" r="12" fill="#F0662B"/></svg>
+<div style="display:flex;gap:0;padding:24px 0 0">
+<div style="width:554px;display:flex;flex-direction:column;gap:12px;padding:0 48px 0 0">
+<p style="font-size:24px;color:#AEB4BD;letter-spacing:2px;text-transform:uppercase">Anos 2000</p>
+<h3 style="font-family:'Space Grotesk', Arial, sans-serif;font-size:44px;font-weight:600;color:#AEB4BD">Software</h3>
+<p style="font-size:26px;color:#AEB4BD;line-height:1.45">Licença perpétua e servidor na empresa viraram assinatura mensal.</p>
+</div>
+<div style="width:554px;display:flex;flex-direction:column;gap:12px;padding:0 48px 0 0">
+<p style="font-size:24px;color:#AEB4BD;letter-spacing:2px;text-transform:uppercase">Anos 2010</p>
+<h3 style="font-family:'Space Grotesk', Arial, sans-serif;font-size:44px;font-weight:600;color:#AEB4BD">Infraestrutura</h3>
+<p style="font-size:26px;color:#AEB4BD;line-height:1.45">Data center próprio virou AWS, GCP e Azure, cobrados pelo uso.</p>
+</div>
+<div style="width:556px;display:flex;flex-direction:column;gap:12px">
+<p style="font-size:24px;color:#F0662B;letter-spacing:2px;text-transform:uppercase;font-weight:500">Agora</p>
+<h3 style="font-family:'Space Grotesk', Arial, sans-serif;font-size:44px;font-weight:600">Robótica</h3>
+<p style="font-size:26px;line-height:1.45">Robô comprado e meses de integração viram uma mensalidade pelo trabalho entregue.</p>
+</div>
+</div>
+</div>
+<p style="font-size:32px;color:#AEB4BD;line-height:1.45;width:1500px">Nossa tese: trabalho físico automatizado vai ser contratado como serviço, em massa. Empresas não querem máquina, querem o trabalho feito.</p>
+
+</section>
+<section id="produto" style="display:flex; flex-direction:row; gap:80px; align-items:start; padding:128px; background:#f3f1ea">
+  <div style="width:1120px; display:flex; flex-direction:column; gap:48px">
+    <h2 style="font-family:'Space Grotesk', Arial, sans-serif; font-size:72px; font-weight:600; line-height:1.08; letter-spacing:-1px; color:#0d1014">Trabalho físico por assinatura.</h2>
+    <p style="font-family:'IBM Plex Sans', Arial, sans-serif; font-size:30px; line-height:1.45; color:#0d1014">Robôs para tarefas repetitivas em ambiente interno: sobre uma base móvel quando a tarefa envolve deslocamento, ou fixos em uma bancada quando o material vem até o robô. Começamos por indústria leve e centros de distribuição. O cliente paga uma mensalidade pelo trabalho entregue.</p>
+    <div style="display:flex; flex-direction:row; gap:48px">
+      <div style="display:flex; flex-direction:column; gap:12px; flex:1; padding:28px 0 0; border-top:2px solid #0d1014">
+        <h3 style="font-family:'Space Grotesk', Arial, sans-serif; font-size:40px; font-weight:600; color:#0d1014">Instalação</h3>
+        <p style="font-family:'IBM Plex Sans', Arial, sans-serif; font-size:24px; line-height:1.45; color:#4a5058">Hardware montado no Brasil com componentes importados. Entra na operação sem projeto de integração.</p>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:12px; flex:1; padding:28px 0 0; border-top:2px solid #0d1014">
+        <h3 style="font-family:'Space Grotesk', Arial, sans-serif; font-size:40px; font-weight:600; color:#0d1014">Treinamento</h3>
+        <p style="font-family:'IBM Plex Sans', Arial, sans-serif; font-size:24px; line-height:1.45; color:#4a5058">Aprende uma tarefa nova em poucas horas, por demonstração. Alguém da operação mostra, e o robô passa a fazer.</p>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:12px; flex:1; padding:28px 0 0; border-top:2px solid #0d1014">
+        <h3 style="font-family:'Space Grotesk', Arial, sans-serif; font-size:40px; font-weight:600; color:#0d1014">Operação</h3>
+        <p style="font-family:'IBM Plex Sans', Arial, sans-serif; font-size:24px; line-height:1.45; color:#4a5058">Operação e manutenção da frota à distância, incluídas na mensalidade.</p>
+      </div>
+    </div>
+  </div>
+  <img src="img/robot_line_dark.png" alt="Desenho técnico do robô da Mechron: torso com dois braços sobre uma base com rodas" style="width:464px; height:824px; object-fit:contain">
+  
+</section>
+<section id="ia" style="background:#0D1014;color:#F3F1EA;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px;display:flex;flex-direction:column;justify-content:space-between;gap:48px">
+<h2 style="font-family:'Space Grotesk', Arial, sans-serif;font-size:72px;font-weight:600;line-height:1.08;letter-spacing:-1px;width:1500px">O robô aprende a tarefa em horas, por demonstração.</h2>
+<div style="display:flex;flex-direction:column;gap:0">
+<svg aria-label="Três etapas em sequência" style="width:1664px;height:72px" viewBox="0 0 1664 72" width="1664" height="72"><line x1="36" y1="36" x2="1652" y2="36" stroke="#2A2F36" stroke-width="2"/><circle cx="36" cy="36" r="34" fill="#0D1014" stroke="#F0662B" stroke-width="3"/><text x="36" y="36" text-anchor="middle" dominant-baseline="central" font-family="Space Grotesk, Arial, sans-serif" font-size="32" font-weight="600" fill="#F0662B">1</text><circle cx="590" cy="36" r="34" fill="#0D1014" stroke="#F0662B" stroke-width="3"/><text x="590" y="36" text-anchor="middle" dominant-baseline="central" font-family="Space Grotesk, Arial, sans-serif" font-size="32" font-weight="600" fill="#F0662B">2</text><circle cx="1144" cy="36" r="34" fill="#0D1014" stroke="#F0662B" stroke-width="3"/><text x="1144" y="36" text-anchor="middle" dominant-baseline="central" font-family="Space Grotesk, Arial, sans-serif" font-size="32" font-weight="600" fill="#F0662B">3</text></svg>
+<div style="display:flex;gap:0;padding:28px 0 0"><div style="width:554px;display:flex;flex-direction:column;gap:12px;padding:0 64px 0 0"><h3 style="font-family:'Space Grotesk', Arial, sans-serif;font-size:36px;font-weight:600;line-height:1.2">Demonstração</h3><p style="font-size:26px;color:#AEB4BD;line-height:1.45">Executamos a tarefa por teleoperação algumas vezes. O robô grava o que vê e o que faz.</p></div><div style="width:554px;display:flex;flex-direction:column;gap:12px;padding:0 64px 0 0"><h3 style="font-family:'Space Grotesk', Arial, sans-serif;font-size:36px;font-weight:600;line-height:1.2">Treino por imitação</h3><p style="font-size:26px;color:#AEB4BD;line-height:1.45">O modelo aprende o movimento a partir das gravações. Em operação, recebe a instrução, olha a cena e executa.</p></div><div style="width:556px;display:flex;flex-direction:column;gap:12px;padding:0"><h3 style="font-family:'Space Grotesk', Arial, sans-serif;font-size:36px;font-weight:600;line-height:1.2">Frota</h3><p style="font-size:26px;color:#AEB4BD;line-height:1.45">Os robôs compartilham o mesmo modelo. Dados de operação de cada unidade voltam para o treino, e a frota inteira melhora a cada versão.</p></div></div>
+</div>
+<p style="font-size:32px;line-height:1.45;width:1600px">Na robótica tradicional cada tarefa é programada à mão, e por isso toda instalação vira um projeto de meses. Aqui o mesmo robô troca de tarefa com uma instrução nova, sem reprogramar. É isso que torna a mensalidade possível, e é por isso que a plataforma melhora conforme a frota cresce.</p>
+
+</section>
+<section id="preco" style="display:flex; flex-direction:column; gap:40px; justify-content:space-between; padding:128px 128px 150px; background:#f3f1ea">
+  <h2 style="width:1500px; font-family:'Space Grotesk', Arial, sans-serif; font-size:72px; font-weight:600; line-height:1.08; letter-spacing:-1px; color:#0d1014">O mesmo trabalho de três turnos, dentro de uma mensalidade.</h2>
+  <div style="display:flex; flex-direction:column; gap:40px">
+    <div style="display:flex; flex-direction:row; gap:48px; align-items:end">
+      <div style="width:360px; display:flex; flex-direction:column; gap:4px">
+        <p style="font-family:'IBM Plex Sans', Arial, sans-serif; font-size:24px; color:#8a8f96">Funcionário CLT</p>
+        <p style="font-family:'Space Grotesk', Arial, sans-serif; font-size:56px; font-weight:600; letter-spacing:-1px; white-space:nowrap; color:#0d1014">R$ 3.200</p>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:8px; flex:1">
+        <svg xmlns="http://www.w3.org/2000/svg" aria-label="Barra de 220 horas" viewBox="0 0 1200 48" style="width:1200px; height:48px"><rect x="0" y="0" width="406" height="48" rx="6" fill="#AEB4BD"/></svg>
+        <p style="font-family:'IBM Plex Sans', Arial, sans-serif; font-size:26px; color:#4a5058">220 horas por mês, R$ 14,50 a hora. Falta, afastamento, férias e rotatividade por conta do cliente.</p>
+      </div>
+    </div>
+    <div style="display:flex; flex-direction:row; gap:48px; align-items:end">
+      <div style="width:360px; display:flex; flex-direction:column; gap:4px">
+        <p style="font-family:'IBM Plex Sans', Arial, sans-serif; font-size:24px; color:#8a8f96">Robô Mechron</p>
+        <p style="font-family:'Space Grotesk', Arial, sans-serif; font-size:56px; font-weight:600; letter-spacing:-1px; white-space:nowrap; color:#f0662b">R$ 5.000</p>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:8px; flex:1">
+        <svg xmlns="http://www.w3.org/2000/svg" aria-label="Barra de 650 horas" viewBox="0 0 1200 48" style="width:1200px; height:48px"><rect x="0" y="0" width="1200" height="48" rx="6" fill="#F0662B"/></svg>
+        <p style="font-family:'IBM Plex Sans', Arial, sans-serif; font-size:26px; color:#4a5058">650 horas por mês, R$ 7,70 a hora. Três turnos, sem hora extra. Manutenção dentro do preço.</p>
+      </div>
+    </div>
+  </div>
+  <div style="display:flex; flex-direction:column; gap:16px">
+    <p style="width:1600px; font-family:'IBM Plex Sans', Arial, sans-serif; font-size:28px; line-height:1.5; color:#0d1014">Para cobrir as mesmas 650 horas com pessoas, hoje são três funcionários, R$ 9.600 por mês. Com o fim da escala 6x1, a partir de dezembro de 2027 passam a ser quatro, R$ 12.800 por mês.</p>
+    <p style="width:1600px; font-family:'IBM Plex Sans', Arial, sans-serif; font-size:26px; line-height:1.5; color:#4a5058">Contrato mínimo de 24 meses. O primeiro ano paga o hardware e do segundo em diante a margem é recorrente.</p>
+  </div>
+  <p style="position:absolute; bottom:48px; left:128px; width:1660px; font-family:'IBM Plex Sans', Arial, sans-serif; font-size:22px; line-height:1.4; color:#8a8f96">Auxiliar de logística, R$ 1.975 bruto (<a href="https://www.salario.com.br/profissao/auxiliar-de-logistica-414140/" target="_blank" rel="noopener" style="color:#8a8f96; text-decoration:underline">salario.com.br</a>, 2026) com encargos de 1,6x (<a href="https://investnews.com.br/negocios/escala-6x1-custo-folha-pagamento/" target="_blank" rel="noopener" style="color:#8a8f96; text-decoration:underline">InvestNews</a>). 220 horas é o divisor da CLT para 44 h semanais. <a href="https://www.migalhas.com.br/quentes/466606/fim-da-escala-6x1-quando-comeca-a-valer-e-o-que-muda" target="_blank" rel="noopener" style="color:#8a8f96; text-decoration:underline">EC 141/2026</a>: 42 h em dez/2026, 40 h em dez/2027. Robô: 90% de 720 horas.</p>
+  
+</section>
+<section id="mercado" style="display:flex; flex-direction:column; gap:40px; justify-content:space-between; padding:128px 128px 160px; background:#0d1014">
+  <h2 style="width:1600px; font-family:'Space Grotesk', Arial, sans-serif; font-size:72px; font-weight:600; line-height:1.08; letter-spacing:-1px; color:#f3f1ea">Tamanho do mercado</h2>
+  <div style="display:flex; flex-direction:row; gap:96px; align-items:start">
+    <div style="width:980px; display:flex; flex-direction:column">
+      <div style="display:flex; flex-direction:row; gap:32px; align-items:baseline; padding:24px 0; border-top:1px solid #2a2f36">
+        <p style="width:80px; font-family:'IBM Plex Sans', Arial, sans-serif; font-size:24px; color:#aeb4bd">TAM</p>
+        <p style="width:340px; font-family:'Space Grotesk', Arial, sans-serif; font-size:64px; font-weight:600; letter-spacing:-1px; white-space:nowrap; color:#f3f1ea">US$ 30 tri</p>
+        <p style="flex:1; font-family:'IBM Plex Sans', Arial, sans-serif; font-size:24px; line-height:1.4; color:#aeb4bd">Mercado de trabalho global que robôs podem endereçar, segundo o Morgan Stanley.</p>
+      </div>
+      <div style="display:flex; flex-direction:row; gap:32px; align-items:baseline; padding:24px 0; border-top:1px solid #2a2f36">
+        <p style="width:80px; font-family:'IBM Plex Sans', Arial, sans-serif; font-size:24px; font-weight:500; color:#f0662b">SAM</p>
+        <p style="width:340px; font-family:'Space Grotesk', Arial, sans-serif; font-size:64px; font-weight:600; letter-spacing:-1px; white-space:nowrap; color:#f0662b">R$ 130 bi</p>
+        <p style="flex:1; font-family:'IBM Plex Sans', Arial, sans-serif; font-size:24px; line-height:1.4; color:#aeb4bd">Por ano. O custo CLT de 2,47 milhões de postos de produção e logística interna no Brasil.</p>
+      </div>
+      <div style="display:flex; flex-direction:row; gap:32px; align-items:baseline; padding:24px 0; border-top:1px solid #2a2f36; border-bottom:1px solid #2a2f36">
+        <p style="width:80px; font-family:'IBM Plex Sans', Arial, sans-serif; font-size:24px; color:#aeb4bd">SOM</p>
+        <p style="width:340px; font-family:'Space Grotesk', Arial, sans-serif; font-size:64px; font-weight:600; letter-spacing:-1px; white-space:nowrap; color:#f3f1ea">R$ 1,3 bi</p>
+        <p style="flex:1; font-family:'IBM Plex Sans', Arial, sans-serif; font-size:24px; line-height:1.4; color:#aeb4bd">Por ano com 1% disso, perto de 22 mil robôs. Mil robôs em 2030 é 0,05%.</p>
+      </div>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:20px; flex:1">
+      <p style="padding:0 0 8px; font-family:'IBM Plex Sans', Arial, sans-serif; font-size:24px; color:#aeb4bd">Robôs por 10 mil trabalhadores na indústria</p>
+      <div style="display:flex; flex-direction:row; gap:16px; align-items:center">
+        <p style="width:100px; font-family:'IBM Plex Sans', Arial, sans-serif; font-size:24px; color:#aeb4bd">EUA</p>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 32" style="width:340px; height:32px"><rect x="0" y="0" width="340" height="32" rx="4" fill="#2A2F36"/></svg>
+        <p style="width:80px; font-family:'IBM Plex Sans', Arial, sans-serif; font-size:24px; font-weight:600; text-align:right; color:#f3f1ea">307</p>
+      </div>
+      <div style="display:flex; flex-direction:row; gap:16px; align-items:center">
+        <p style="width:100px; font-family:'IBM Plex Sans', Arial, sans-serif; font-size:24px; color:#aeb4bd">China</p>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 32" style="width:340px; height:32px"><rect x="0" y="0" width="184" height="32" rx="4" fill="#2A2F36"/></svg>
+        <p style="width:80px; font-family:'IBM Plex Sans', Arial, sans-serif; font-size:24px; font-weight:600; text-align:right; color:#f3f1ea">166</p>
+      </div>
+      <div style="display:flex; flex-direction:row; gap:16px; align-items:center">
+        <p style="width:100px; font-family:'IBM Plex Sans', Arial, sans-serif; font-size:24px; color:#aeb4bd">Mundo</p>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 32" style="width:340px; height:32px"><rect x="0" y="0" width="146" height="32" rx="4" fill="#2A2F36"/></svg>
+        <p style="width:80px; font-family:'IBM Plex Sans', Arial, sans-serif; font-size:24px; font-weight:600; text-align:right; color:#f3f1ea">132</p>
+      </div>
+      <div style="display:flex; flex-direction:row; gap:16px; align-items:center">
+        <p style="width:100px; font-family:'IBM Plex Sans', Arial, sans-serif; font-size:24px; color:#aeb4bd">México</p>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 32" style="width:340px; height:32px"><rect x="0" y="0" width="69" height="32" rx="4" fill="#2A2F36"/></svg>
+        <p style="width:80px; font-family:'IBM Plex Sans', Arial, sans-serif; font-size:24px; font-weight:600; text-align:right; color:#f3f1ea">62</p>
+      </div>
+      <div style="display:flex; flex-direction:row; gap:16px; align-items:center">
+        <p style="width:100px; font-family:'IBM Plex Sans', Arial, sans-serif; font-size:24px; color:#aeb4bd">Brasil</p>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 32" style="width:340px; height:32px"><rect x="0" y="0" width="23" height="32" rx="4" fill="#F0662B"/></svg>
+        <p style="width:80px; font-family:'IBM Plex Sans', Arial, sans-serif; font-size:24px; font-weight:600; text-align:right; color:#f0662b">21</p>
+      </div>
+    </div>
+  </div>
+  <p style="position:absolute; bottom:64px; left:128px; width:1600px; font-family:'IBM Plex Sans', Arial, sans-serif; font-size:24px; color:#8a8f96"><a href="https://www.gov.br/trabalho-e-emprego/pt-br/assuntos/estatisticas-trabalho/rais/rais-2024" target="_blank" rel="noopener" style="color:#8a8f96; text-decoration:underline">RAIS 2024</a> (CBO 7842, 4141, 7822, 7841) com custo CLT de 2x · <a href="https://ifr.org/ifr-press-releases/news/robot-density-surges-in-europe-asia-and-americas" target="_blank" rel="noopener" style="color:#8a8f96; text-decoration:underline">IFR World Robotics 2025</a> · <a href="https://www.morganstanley.com/insights/podcasts/thoughts-on-the-market/ai-humanoid-robots-adam-jonas" target="_blank" rel="noopener" style="color:#8a8f96; text-decoration:underline">Morgan Stanley</a></p>
+  
+</section>
+<section id="agora" style="display:flex; flex-direction:column; gap:40px; justify-content:space-between; padding:112px 128px 128px; background:#f0662b">
+  <h2 style="width:1500px; font-family:'Space Grotesk', Arial, sans-serif; font-size:96px; font-weight:600; line-height:1.02; letter-spacing:-2px; color:#0d1014">Por que agora.</h2>
+  <div style="display:flex; flex-direction:column; gap:40px">
+    <div style="display:flex; flex-direction:row; gap:96px">
+      <div style="display:flex; flex-direction:column; gap:10px; flex:1; padding:24px 0 0; border-top:3px solid #0d1014">
+        <p style="font-family:'Space Grotesk', Arial, sans-serif; font-size:112px; font-weight:600; line-height:1; letter-spacing:-3px; color:#0d1014">−40%</p>
+        <h3 style="font-family:'IBM Plex Sans', Arial, sans-serif; font-size:32px; font-weight:600; line-height:1.2; color:#0d1014">no custo de material de um robô humanoide, em um ano</h3>
+        <p style="width:720px; font-family:'IBM Plex Sans', Arial, sans-serif; font-size:24px; line-height:1.45; color:#0d1014">Braço, base e sensor viraram componente de prateleira. Dá pra importar, montar aqui e fechar a conta da mensalidade.</p>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:10px; flex:1; padding:24px 0 0; border-top:3px solid #0d1014">
+        <p style="font-family:'Space Grotesk', Arial, sans-serif; font-size:112px; font-weight:600; line-height:1; letter-spacing:-3px; color:#0d1014">horas</p>
+        <h3 style="font-family:'IBM Plex Sans', Arial, sans-serif; font-size:32px; font-weight:600; line-height:1.2; color:#0d1014">para o robô aprender uma tarefa nova, em vez de meses</h3>
+        <p style="width:720px; font-family:'IBM Plex Sans', Arial, sans-serif; font-size:24px; line-height:1.45; color:#0d1014">Até pouco tempo atrás cada tarefa era programada à mão. Hoje o modelo aprende por demonstração.</p>
+      </div>
+    </div>
+    <div style="display:flex; flex-direction:row; gap:96px">
+      <div style="display:flex; flex-direction:column; gap:10px; flex:1; padding:24px 0 0; border-top:3px solid #0d1014">
+        <p style="font-family:'Space Grotesk', Arial, sans-serif; font-size:112px; font-weight:600; line-height:1; letter-spacing:-3px; color:#0d1014">21</p>
+        <h3 style="font-family:'IBM Plex Sans', Arial, sans-serif; font-size:32px; font-weight:600; line-height:1.2; color:#0d1014">robôs por 10 mil trabalhadores no Brasil; 132 no mundo</h3>
+        <p style="width:720px; font-family:'IBM Plex Sans', Arial, sans-serif; font-size:24px; line-height:1.45; color:#0d1014">Nenhum RaaS local. Os globais cobram em dólar, com preço feito para o salário americano.</p>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:10px; flex:1; padding:24px 0 0; border-top:3px solid #0d1014">
+        <p style="font-family:'Space Grotesk', Arial, sans-serif; font-size:112px; font-weight:600; line-height:1; letter-spacing:-3px; color:#0d1014">+10%</p>
+        <h3 style="font-family:'IBM Plex Sans', Arial, sans-serif; font-size:32px; font-weight:600; line-height:1.2; color:#0d1014">no custo da hora humana até dezembro de 2027, por lei</h3>
+        <p style="width:720px; font-family:'IBM Plex Sans', Arial, sans-serif; font-size:24px; line-height:1.45; color:#0d1014">O fim da escala 6x1 leva a jornada de 44 para 40 horas sem reduzir salário. Tem data marcada.</p>
+      </div>
+    </div>
+  </div>
+  <p style="width:1600px; font-family:'IBM Plex Sans', Arial, sans-serif; font-size:22px; line-height:1.4; color:#0d1014"><a href="https://www.goldmansachs.com/intelligence/pages/gs-research/global-automation-humanoid-robot-the-ai-accelerant/report.pdf" target="_blank" rel="noopener" style="color:#0d1014; text-decoration:underline">Goldman Sachs, Humanoid Robot: The AI Accelerant, 2024</a> · <a href="https://ifr.org/ifr-press-releases/news/robot-density-surges-in-europe-asia-and-americas" target="_blank" rel="noopener" style="color:#0d1014; text-decoration:underline">IFR World Robotics 2025</a> · <a href="https://www.migalhas.com.br/quentes/466606/fim-da-escala-6x1-quando-comeca-a-valer-e-o-que-muda" target="_blank" rel="noopener" style="color:#0d1014; text-decoration:underline">EC 141/2026</a></p>
+  
+</section>
+<section id="competicao" style="background:#F3F1EA;color:#0D1014;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px;display:flex;flex-direction:column;justify-content:space-between;gap:48px">
+<h2 style="font-family:'Space Grotesk', Arial, sans-serif;font-size:72px;font-weight:600;line-height:1.08;letter-spacing:-1px;width:1500px">Ninguém vende trabalho físico por assinatura no Brasil.</h2>
+<table style="font-size:26px;color:#0D1014;padding:20px 24px">
+<tr><th style="width:16%;text-align:left;color:#8A8F96;font-weight:500"></th><th style="width:42%;text-align:left">Venda de robô</th><th style="width:42%;text-align:left">Assinatura</th></tr>
+<tr><td style="font-weight:600">Global</td><td>Boston Dynamics, FANUC, KUKA, Unitree. Venda direta, investimento alto, foco em indústria grande.</td><td>Dyna cobra mensalidade por robô e lançou em setembro de 2026 um semi-humanoide sobre rodas, com dois braços, para lavanderia, hotel e armazém. Verne faz RaaS mensal para kitting e montagem em fábricas médias dos EUA. Brightpick faz RaaS para fulfillment, mínimo de 10 robôs a US$ 1.990 por mês cada.</td></tr>
+<tr><td style="font-weight:600">Brasil e LATAM</td><td>Integradoras e distribuidoras revendem hardware importado, sem recorrência e sem operar nada.</td><td style="color:#F0662B;font-weight:600">Nenhum player local. Os globais cobram em dólar, com preço feito para o salário americano.</td></tr>
+</table>
+<p style="font-size:32px;line-height:1.45;width:1600px">A Mechron é o primeiro RaaS desenhado para o custo de mão de obra brasileiro: preço em real, hardware montado aqui e operação dentro da fábrica do cliente.</p>
+
+</section>
+<section id="hoje" style="background:#0D1014;color:#F3F1EA;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px;display:flex;flex-direction:row;gap:64px;align-items:start">
+<div style="width:880px;display:flex;flex-direction:column;gap:16px">
+<img src="img/prototype_photo_top.jpg" alt="Protótipo da Mechron segurando uma garrafa com o braço esquerdo, ao lado de um cesto sobre a mesa" style="width:880px;height:400px;object-fit:cover;border-radius:8px">
+<div style="display:flex;flex-direction:row;gap:16px">
+<img src="img/control_plane.jpg" alt="Plataforma de controle da Mechron: robô T-799 online, pose ao vivo, saúde operacional e tabela de motores" style="width:480px;height:283px;object-fit:cover;border-radius:8px">
+<img src="img/grafana2.jpg" alt="Painel de telemetria: malha de controle a 103 Hz, zero pacotes perdidos e temperatura dos motores do punho e da rotação" style="width:384px;height:283px;object-fit:cover;border-radius:8px">
+</div>
+<p style="font-size:24px;color:#AEB4BD;line-height:1.45">Protótipo executando "pega a garrafa e leva até o cesto" sem teleoperação. Abaixo, a plataforma de controle e a telemetria do robô ao vivo.</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:40px">
+<h2 style="font-family:'Space Grotesk', Arial, sans-serif;font-size:64px;font-weight:600;line-height:1.08;letter-spacing:-1px">O que já temos.</h2>
+<div style="display:flex;flex-direction:column;gap:28px">
+<p style="font-size:26px;line-height:1.45">O protótipo aprende a tarefa por demonstração, executa a partir de uma instrução e troca de tarefa sem reprogramar. Por trás dele já rodam a plataforma, a telemetria do robô e a API que recebe as gravações de campo para retreinar o modelo.</p>
+<p style="font-size:26px;line-height:1.45">Duas fábricas de grandes marcas de alimentos e bebidas confirmaram interesse em rodar o piloto assim que as primeiras unidades ficarem prontas.</p>
+<p style="font-size:26px;line-height:1.45;color:#AEB4BD">Em andamento: o modelo em treinamento e validação, e o fechamento do hardware para fabricar as primeiras unidades.</p>
+</div>
+<p style="font-size:24px;color:#AEB4BD">Vídeo de demonstração: <a href="https://www.youtube.com/watch?v=z2cnDMFLU00" target="_blank" rel="noopener" style="color:#F3F1EA;text-decoration:underline">youtube.com/watch?v=z2cnDMFLU00</a></p>
+</div>
+
+</section>
+<section id="plano" style="display:flex; flex-direction:column; gap:48px; justify-content:space-between; padding:128px; background:#f3f1ea">
+  <h2 style="width:1500px; font-family:'Space Grotesk', Arial, sans-serif; font-size:72px; font-weight:600; line-height:1.08; letter-spacing:-1px; color:#0d1014">Plano e marcos.</h2>
+  <div style="display:flex; flex-direction:row; gap:64px">
+    <div style="display:flex; flex-direction:column; gap:12px; flex:1; padding:32px 0 0; border-top:3px solid #f0662b">
+      <p style="font-family:'IBM Plex Sans', Arial, sans-serif; font-size:24px; font-weight:500; color:#f0662b">Fase 1 · agora</p>
+      <h3 style="font-family:'Space Grotesk', Arial, sans-serif; font-size:44px; font-weight:600; line-height:1.1; color:#0d1014">Robô em operação</h3>
+      <p style="font-family:'IBM Plex Sans', Arial, sans-serif; font-size:28px; font-weight:600; color:#0d1014">Pré-seed de US$ 1M, pilotos rodando em até 8 meses</p>
+      <p style="font-family:'IBM Plex Sans', Arial, sans-serif; font-size:26px; line-height:1.45; color:#4a5058">Robô v1 completo operando em piloto, em fábrica real, com o pipeline de dados, treino e operação rodando.</p>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:12px; flex:1; padding:32px 0 0; border-top:3px solid #0d1014">
+      <p style="font-family:'IBM Plex Sans', Arial, sans-serif; font-size:24px; color:#8a8f96">Fase 2</p>
+      <h3 style="font-family:'Space Grotesk', Arial, sans-serif; font-size:44px; font-weight:600; line-height:1.1; color:#0d1014">Receita recorrente</h3>
+      <p style="font-family:'IBM Plex Sans', Arial, sans-serif; font-size:28px; font-weight:600; color:#0d1014">Seed de US$ 3 a 5M</p>
+      <p style="font-family:'IBM Plex Sans', Arial, sans-serif; font-size:26px; line-height:1.45; color:#4a5058">Pilotos viram contratos. Clientes pagando com payback abaixo de 12 meses, a partir de meados de 2027.</p>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:12px; flex:1; padding:32px 0 0; border-top:3px solid #0d1014">
+      <p style="font-family:'IBM Plex Sans', Arial, sans-serif; font-size:24px; color:#8a8f96">Fase 3</p>
+      <h3 style="font-family:'Space Grotesk', Arial, sans-serif; font-size:44px; font-weight:600; line-height:1.1; color:#0d1014">Frota em escala</h3>
+      <p style="font-family:'IBM Plex Sans', Arial, sans-serif; font-size:28px; font-weight:600; color:#0d1014">Série A</p>
+      <p style="font-family:'IBM Plex Sans', Arial, sans-serif; font-size:26px; line-height:1.45; color:#4a5058">Fabricação em lote e centenas de robôs trabalhando no Brasil e na América Latina.</p>
+    </div>
+  </div>
+  <p style="font-family:'IBM Plex Sans', Arial, sans-serif; font-size:28px; line-height:1.45; color:#4a5058">Clientes pagantes até meados de 2027.</p>
+  
+</section>
+<section id="preseed" style="background:#0D1014;color:#F3F1EA;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px;display:flex;flex-direction:column;justify-content:space-between;gap:48px">
+<h2 style="font-family:'Space Grotesk', Arial, sans-serif;font-size:72px;font-weight:600;line-height:1.08;letter-spacing:-1px;width:1500px">Pré-seed de US$ 1M, via SAFE.</h2>
+<div style="display:flex;gap:96px;align-items:start">
+<div style="width:820px;display:flex;flex-direction:column;gap:24px">
+<p style="font-size:24px;color:#AEB4BD">Para onde vai o dinheiro</p>
+<p style="font-size:28px;line-height:1.45">Fecha o hardware, fabrica as primeiras unidades e coloca uma frota trabalhando nos dois pilotos em 8 meses.</p>
+<p style="font-size:28px;line-height:1.45">Abre a Fase 2, com a frota em fabricação e as primeiras contratações de engenharia e operação.</p>
+<p style="font-size:28px;line-height:1.45">Mantém a operação até o seed.</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:24px">
+<p style="font-size:24px;color:#AEB4BD;padding:0 0 8px">Receita anual por tamanho de frota, a R$ 60 mil por robô</p>
+<div style="display:flex;gap:16px;align-items:center"><p style="font-size:24px;color:#AEB4BD;width:150px">100 robôs</p><svg style="width:380px;height:36px" viewBox="0 0 380 36" width="380" height="36"><rect x="0" y="0" width="4" height="36" rx="2" fill="#AEB4BD"/></svg><p style="font-size:26px;color:#F3F1EA;width:120px;text-align:right;font-weight:600">R$ 6M</p></div>
+<div style="display:flex;gap:16px;align-items:center"><p style="font-size:24px;color:#AEB4BD;width:150px">1.000 robôs</p><svg style="width:380px;height:36px" viewBox="0 0 380 36" width="380" height="36"><rect x="0" y="0" width="38" height="36" rx="4" fill="#2A2F36"/></svg><p style="font-size:26px;color:#F3F1EA;width:120px;text-align:right;font-weight:600">R$ 60M</p></div>
+<div style="display:flex;gap:16px;align-items:center"><p style="font-size:24px;color:#AEB4BD;width:150px">10.000 robôs</p><svg style="width:380px;height:36px" viewBox="0 0 380 36" width="380" height="36"><rect x="0" y="0" width="380" height="36" rx="4" fill="#F0662B"/></svg><p style="font-size:26px;color:#F0662B;width:120px;text-align:right;font-weight:600">R$ 600M</p></div>
+</div>
+</div>
+<p style="font-size:32px;line-height:1.45;width:1600px">Até 2030 o trabalho físico repetitivo da fábrica vai ser feito por robôs contratados como serviço, pagos pelo trabalho entregue. Queremos liderar isso na América Latina.</p>
+
+</section>
+<section id="time" style="background:#F3F1EA;color:#0D1014;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px;display:flex;flex-direction:column;justify-content:space-between;gap:48px">
+<h2 style="font-family:'Space Grotesk', Arial, sans-serif;font-size:72px;font-weight:600;line-height:1.08;letter-spacing:-1px;width:1500px">Quem está construindo a Mechron.</h2>
+<div style="display:flex;gap:64px;align-items:start">
+<div style="flex:1;display:flex;flex-direction:column;gap:16px">
+<img src="img/team1.png" alt="Daniel Romero" style="width:180px;height:180px;object-fit:cover;border-radius:50%">
+<h3 style="font-family:'Space Grotesk', Arial, sans-serif;font-size:40px;font-weight:600">Daniel Romero</h3>
+<p style="font-size:24px;color:#F0662B;font-weight:600">Cofundador, CEO</p>
+<p style="font-size:24px;color:#4A5058;line-height:1.45">25 anos em tecnologia, AI Engineer com passagens por OpenAI, Qdrant e Elastic. Responde pela arquitetura do robô: mecânica, navegação, visão e controle.</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:16px">
+<img src="img/team2.png" alt="Alberto Souza" style="width:180px;height:180px;object-fit:cover;border-radius:50%">
+<h3 style="font-family:'Space Grotesk', Arial, sans-serif;font-size:40px;font-weight:600">Alberto Souza</h3>
+<p style="font-size:24px;color:#F0662B;font-weight:600">Cofundador, COO</p>
+<p style="font-size:24px;color:#4A5058;line-height:1.45">Senior Staff Engineer no Nubank. Foi Diretor de Tecnologia e Educação na Zup e sócio-fundador da Alura. Monta time e faz entregar.</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:16px">
+<img src="img/team3.png" alt="Eduardo Scheinkman" style="width:180px;height:180px;object-fit:cover;border-radius:50%">
+<h3 style="font-family:'Space Grotesk', Arial, sans-serif;font-size:40px;font-weight:600">Eduardo Scheinkman</h3>
+<p style="font-size:24px;color:#F0662B;font-weight:600">Cofundador, CPO e CFO</p>
+<p style="font-size:24px;color:#4A5058;line-height:1.45">Fundou startup e liderou tecnologia em empresas investidas por private equity. Transformação digital e com IA. Cuida do processo e da operação em escala.</p>
+</div>
+</div>
+<p style="font-size:28px;color:#4A5058;line-height:1.45;width:1600px">Construir o robô é metade do trabalho. A outra metade é instalar, operar e manter a frota dentro do cliente, e o time cobre as duas.</p>
+
+</section>
+</div></div>
+<button id="prev" aria-label="Slide anterior"></button>
+<button id="next" aria-label="Próximo slide"></button>
+<div id="hud"></div>
+<div id="overview" role="dialog" aria-label="Visão geral dos slides"><p id="ovhint">Esc fecha · setas movem · Enter ou clique abre o slide</p><div id="grid"></div></div>
+<script>
+(function(){
+  var N=13, track=document.getElementById('track'), hud=document.getElementById('hud'), stage=document.getElementById('stage');
+  var i=Math.min(N-1,Math.max(0,(parseInt(location.hash.slice(1),10)||1)-1));
+  function fit(){var s=Math.min(innerWidth/1920,innerHeight/1080);stage.style.transform='translate(-50%,-50%) scale('+s+')';}
+  function go(k,replace){i=Math.min(N-1,Math.max(0,k));track.style.transform='translateX('+(-i*1920)+'px)';hud.textContent=(i+1)+' / '+N;
+    var h='#'+(i+1); if(replace) history.replaceState(null,'',h); else if(location.hash!==h) history.pushState(null,'',h);}
+  var ov=document.getElementById('overview'), grid=document.getElementById('grid'), thumbs=[], sel=0;
+  function buildOverview(){
+    var secs=track.querySelectorAll('section');
+    secs.forEach(function(sec,k){
+      var t=document.createElement('div'); t.className='thumb'; t.tabIndex=0; t.dataset.k=k;
+      var f=document.createElement('div'); f.className='frame'; var sc=document.createElement('div'); sc.className='scaler';
+      var c=sec.cloneNode(true); c.removeAttribute('id'); c.querySelectorAll('[id]').forEach(function(e){e.removeAttribute('id')});
+      sc.appendChild(c); f.appendChild(sc); t.appendChild(f);
+      var h=sec.querySelector('h1,h2'); var cap=document.createElement('div'); cap.className='cap';
+      cap.innerHTML='<b>'+(k+1)+'</b>'+(h?h.textContent:''); t.appendChild(cap);
+      t.addEventListener('click',function(){closeOverview(); go(k)});
+      grid.appendChild(t); thumbs.push(t);
+    });
+  }
+  function scaleThumbs(){ thumbs.forEach(function(t){var w=t.querySelector('.frame').clientWidth; t.querySelector('.scaler').style.transform='scale('+(w/1920)+')'}) }
+  function select(k){ sel=Math.min(N-1,Math.max(0,k)); thumbs.forEach(function(t,j){t.classList.toggle('current',j===sel)}); thumbs[sel].focus({preventScroll:false}); }
+  function openOverview(){ if(!thumbs.length) buildOverview(); ov.classList.add('open'); stage.style.visibility='hidden'; hud.style.visibility='hidden'; scaleThumbs(); select(i); }
+  function closeOverview(){ ov.classList.remove('open'); stage.style.visibility=''; hud.style.visibility=''; }
+  function cols(){ var st=getComputedStyle(grid).gridTemplateColumns.split(' ').length; return st||1 }
+  addEventListener('resize',function(){fit(); if(ov.classList.contains('open')) scaleThumbs()}); fit(); go(i,true);
+  addEventListener('keydown',function(e){
+    if(e.metaKey||e.ctrlKey||e.altKey) return;
+    if(ov.classList.contains('open')){
+      switch(e.key){
+        case 'Escape': e.preventDefault(); closeOverview(); break;
+        case 'ArrowRight': e.preventDefault(); select(sel+1); break;
+        case 'ArrowLeft': e.preventDefault(); select(sel-1); break;
+        case 'ArrowDown': e.preventDefault(); select(sel+cols()); break;
+        case 'ArrowUp': e.preventDefault(); select(sel-cols()); break;
+        case 'Home': e.preventDefault(); select(0); break;
+        case 'End': e.preventDefault(); select(N-1); break;
+        case 'Enter': case ' ': e.preventDefault(); closeOverview(); go(sel); break;
+      }
+      return;
+    }
+    switch(e.key){
+      case 'Escape': case 'o': case 'O': e.preventDefault(); openOverview(); break;
+      case 'ArrowRight': case 'ArrowDown': case 'PageDown': case ' ': case 'Enter': e.preventDefault(); go(i+1); break;
+      case 'ArrowLeft': case 'ArrowUp': case 'PageUp': case 'Backspace': e.preventDefault(); go(i-1); break;
+      case 'Home': go(0); break; case 'End': go(N-1); break;
+      case 'f': case 'F': (document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen()); break;
+    }
+  });
+  document.getElementById('next').addEventListener('click',function(){go(i+1)});
+  document.getElementById('prev').addEventListener('click',function(){go(i-1)});
+  var x0=null; addEventListener('touchstart',function(e){x0=e.touches[0].clientX},{passive:true});
+  addEventListener('touchend',function(e){if(x0===null)return;var dx=e.changedTouches[0].clientX-x0;x0=null;if(Math.abs(dx)>40)go(dx<0?i+1:i-1)});
+  addEventListener('popstate',function(){var k=(parseInt(location.hash.slice(1),10)||1)-1;if(k!==i)go(k,true)});
+})();
+</script>
+</body>
+</html>
